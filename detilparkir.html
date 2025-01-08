@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Lahan Parkir</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            padding: 20px;
+            font-size: xx-large;
+        }
+        .container {
+            margin-top: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Detail Lahan Parkir</h1>
+        <p id="parkirInfo">Memuat informasi...</p>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const parkir = localStorage.getItem('parkirPesanan');
+            const parkirInfo = document.getElementById('parkirInfo');
+            if (parkir) {
+                parkirInfo.textContent = `Lahan parkir yang kamu pesan adalah "${parkir}".`;
+            } else {
+                parkirInfo.textContent = "Belum ada lahan parkir yang dipesan.";
+            }
+        });
+    </script>
+</body>
+</html>

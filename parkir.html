@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesan Lahan Parkir</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin: 15px 0;
+        }
+        .btn {
+            background-color: #5cff54;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #21a71a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pesan Lahan Parkir</h1>
+        <form id="parkirForm">
+            <div class="form-group">
+                <label for="parkirSelect">Pilih Lahan Parkir:</label>
+                <select id="parkirSelect">
+                    <option value="Parkiran 1">Parkiran 1</option>
+                    <option value="Parkiran 2">Parkiran 2</option>
+                    <option value="Parkiran 3">Parkiran 3</option>
+                    <option value="Parkiran 4">Parkiran 4</option>
+                    <option value="Parkiran 5">Parkiran 5</option>
+                    <option value="Parkiran 6">Parkiran 6</option>
+                </select>
+            </div>
+            <button type="button" class="btn" onclick="pesanParkir()">Pesan</button>
+        </form>
+        <p id="statusPesan" style="color: green; margin-top: 20px;"></p>
+    </div>
+    <script>
+        function pesanParkir() {
+            const parkir = document.getElementById('parkirSelect').value;
+            localStorage.setItem('parkirPesanan', parkir);
+            document.getElementById('statusPesan').textContent = `Lahan parkir "${parkir}" berhasil dipesan.`;
+        }
+    </script>
+    <p>Balik ke  <a href="index.html">Beranda</a></p>
+    <a href="detilparkir.html">Detail Lahan Parkir</a>
+    <p>
+        Untuk membuat barcode, silahkan klik <a href="https://id.qr-code-generator.com/">link ini</a>.
+    </p>
+    <p>
+       1. Buka "Detail Lahan Parkir" untuk mengetahui lahan parkir Anda. <br>
+       2. Salin linknya, lalu tempelkan linknya ke website barqode tersebut.
+    </p>
+</body>
+</html>
